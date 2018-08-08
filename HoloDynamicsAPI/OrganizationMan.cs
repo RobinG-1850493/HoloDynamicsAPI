@@ -126,11 +126,18 @@ namespace HoloDynamicsAPI
 
                 foreach(Entity entity in info.Entities)
                 {
+                    Info holoinfo = new Info();
 
+                    holoinfo.accountId = accountId;
+                    holoinfo.productId = productId;
+                    holoinfo.name = entity.Attributes["scp_name"].ToString();
+                    holoinfo.infoType = ((OptionSetValue)entity.Attributes["scp_holoinfotype"]).Value.ToString();
+                    holoinfo.infoUrl = entity.Attributes["scp_holoinfotypeurl"].ToString();
+
+                    infoList.Add(holoinfo);
                 }
             }
-
-            return null;
+            return infoList;
         }
     }
 }

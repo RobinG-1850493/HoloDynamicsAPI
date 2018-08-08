@@ -27,13 +27,5 @@ namespace HoloDynamicsAPI.Controllers
             List<Account> accountList = man.getCustomersByProductId(id);
             return accountList;
         }
-
-        // GET: api/Product/{productId}/{accountId}
-        public List<Info> GetInfoByProductAndAccountId(string productId, string accountId)
-        {
-            man.ConnectToCrm();
-            List<Info> infoList = man.getInfoByProductAndAccountId(productId, accountId);
-            return null;
-        }
     }
 }
