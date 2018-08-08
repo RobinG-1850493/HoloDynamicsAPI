@@ -1,0 +1,1 @@
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache

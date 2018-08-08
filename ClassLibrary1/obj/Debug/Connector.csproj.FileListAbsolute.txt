@@ -1,0 +1,12 @@
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\ClassLibrary1.dll.config
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\obj\Debug\Connector.csproj.CoreCompileInputs.cache
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\obj\Debug\Connector.csproj.CopyComplete
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Robin\source\repos\HoloDynamicsAPI\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
