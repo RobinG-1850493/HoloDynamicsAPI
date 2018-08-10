@@ -137,10 +137,40 @@ namespace HoloDynamicsAPI
                     holoinfo.infoType = ((OptionSetValue)entity.Attributes["scp_holoinfotype"]).Value.ToString();
                     holoinfo.infoUrl = entity.Attributes["scp_holoinfotypeurl"].ToString();
 
+                    if(holoinfo.infoType == "798200000")
+                    {
+                        EntityReference docInfo = (EntityReference)entity.Attributes["scp_holoinfodocument"];
+                        holoinfo.documentid = docInfo.Id.ToString();
+                    }
+
                     infoList.Add(holoinfo);
                 }
             }
             return infoList;
+        }
+
+        public Document getDocumentByInfoId(string infoId)
+        {
+            Document page = new Document();
+            if (userid != Guid.Empty)
+            {
+                QueryByAttribute query = new QueryByAttribute("scp_holoinfodocument");
+                query.AddAttributeValue("scp_holoinfodocumentid", infoId);
+                query.ColumnSet = new ColumnSet(true);
+                EntityCollection info = organizationService.RetrieveMultiple(query);
+
+                foreach (Entity entity in info.Entities)
+                {
+                    page.pageUrl = new List<string>();
+                    page.pageUrl.Add(entity.Attributes["scp_holoinfodocumentpage1"].ToString());
+                    page.pageUrl.Add(entity.Attributes["scp_holoinfodocumentpage2"].ToString());
+                    page.pageUrl.Add(entity.Attributes["scp_holoinfodocumentpage3"].ToString());
+                    page.pageUrl.Add(entity.Attributes["scp_holoinfodocumentpage4"].ToString());
+                    page.pageUrl.Add(entity.Attributes["scp_holoinfodocumentpage5"].ToString());
+                }
+
+            }
+            return page;
         }
     }
 }
