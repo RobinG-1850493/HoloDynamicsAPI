@@ -21,27 +21,30 @@ namespace HoloDynamicsAPI
         public Guid userid = new Guid();
         private List<Product> productList = new List<Product>();
 
-        public void ConnectToCrm()
+        public void ConnectToCrm(string username, string password)
         {
-            ClientCredentials clientCredentials = new ClientCredentials();
-            clientCredentials.UserName.UserName = "robin.goos@scapta.com";
-            clientCredentials.UserName.Password = "Welcome@Scapta";
-
-            // For Dynamics 365 Customer Engagement V9.X, set Security Protocol as TLS12
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            // Get the URL from CRM, Navigate to Settings -> Customizations -> Developer Resources
-            // Copy and Paste Organization Service Endpoint Address URL
-            organizationService = (IOrganizationService)new OrganizationServiceProxy(new Uri("https://scapta.api.crm4.dynamics.com/XRMServices/2011/Organization.svc"),
-             null, clientCredentials, null);
-
-            if (organizationService != null)
+            if(username != null && password != null)
             {
-                userid = ((WhoAmIResponse)organizationService.Execute(new WhoAmIRequest())).UserId;
-            }
-            else
-            {
-                Console.WriteLine("Failed to Established Connection!!!");
-            }
+                ClientCredentials clientCredentials = new ClientCredentials();
+                clientCredentials.UserName.UserName = username;
+                clientCredentials.UserName.Password = password;
+
+                // For Dynamics 365 Customer Engagement V9.X, set Security Protocol as TLS12
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                // Get the URL from CRM, Navigate to Settings -> Customizations -> Developer Resources
+                // Copy and Paste Organization Service Endpoint Address URL
+                organizationService = (IOrganizationService)new OrganizationServiceProxy(new Uri("https://scapta.api.crm4.dynamics.com/XRMServices/2011/Organization.svc"),
+                 null, clientCredentials, null);
+
+                if (organizationService != null)
+                {
+                    userid = ((WhoAmIResponse)organizationService.Execute(new WhoAmIRequest())).UserId;
+                }
+                else
+                {
+                    Console.WriteLine("Failed to Established Connection!!!");
+                }
+            }        
         }
 
         public List<Product> getProducts()

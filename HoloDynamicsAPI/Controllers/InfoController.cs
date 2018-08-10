@@ -17,8 +17,22 @@ namespace HoloDynamicsAPI.Controllers
         [Route("api/Info/{productId}/{accountId}")]
         public List<Info> GetInfoByProductAndAccountId(string productId, string accountId)
         {
-            man.ConnectToCrm();
-            List<Info> infoList = man.getInfoByProductAndAccountId(productId, accountId);
+            List<Info> infoList = new List<Info>();
+            string user = "";
+            string pw = "";
+
+            if (Request.Headers.Contains("AuthorizationUser"))
+            {
+                user = Request.Headers.GetValues("AuthorizationUser").First();
+                pw = Request.Headers.GetValues("AuthorizationPass").First();
+            }
+
+            if (user != null && pw != null)
+            {
+                man.ConnectToCrm(user, pw);
+                infoList = man.getInfoByProductAndAccountId(productId, accountId);
+            }
+
             return infoList;
         }
     }

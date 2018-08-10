@@ -16,15 +16,43 @@ namespace HoloDynamicsAPI.Controllers
         // GET: api/Product
         public List<Product> Get()
         {
-            man.ConnectToCrm();
-            List<Product> products = man.getProducts();
+            List<Product> products = new List<Product>();
+            string user = "";
+            string pw = "";
+
+            if (Request.Headers.Contains("AuthorizationUser"))
+            {
+                user = Request.Headers.GetValues("AuthorizationUser").First();
+                pw = Request.Headers.GetValues("AuthorizationPass").First();
+            }
+
+            if (user != null && pw != null)
+            {
+                man.ConnectToCrm(user, pw);
+                products = man.getProducts();
+            }
+
             return products;
         }
         // GET: api/Product/{id}
         public List<Account> GetProductById(string id)
         {
-            man.ConnectToCrm();
-            List<Account> accountList = man.getCustomersByProductId(id);
+            List<Account> accountList = new List<Account>();
+            string user = "";
+            string pw = "";
+
+            if (Request.Headers.Contains("AuthorizationUser"))
+            {
+                user = Request.Headers.GetValues("AuthorizationUser").First();
+                pw = Request.Headers.GetValues("AuthorizationPass").First();
+            }
+
+            if (user != null && pw != null)
+            {
+                man.ConnectToCrm(user, pw);
+                accountList = man.getCustomersByProductId(id);
+            }
+
             return accountList;
         }
     }
